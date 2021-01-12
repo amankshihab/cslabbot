@@ -1,9 +1,11 @@
-import telebot
-import os
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 from secrets import TOKEN
+updater = Updater(token=TOKEN, use_context=True) #Replace TOKEN with your token string
+dispatcher = updater.dispatcher
 
-bot = telebot.TeleBot(TOKEN)
+def hello(update, context):
+    context.bot.send_message(chat_id=update.effective_chat.id, text='Hello, World')
 
-@bot.message_handler(commands=['start', 'help'])
-def print_message(message):
-    bot.reply_to(message, "Hey there!")
+hello_handler = CommandHandler('hello', hello)
+dispatcher.add_handler(hello_handler)
+updater.start_polling()
