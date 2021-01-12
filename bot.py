@@ -2,7 +2,7 @@ import telebot
 import os
 from secrets import TOKEN
 
-bot = telebot.TeleBot(TOKEN, parse_mode = None)
+bot = telebot.TeleBot(TOKEN)
 
 @bot.message_handler(commands=['start', 'help'])
 def print_message(message):
