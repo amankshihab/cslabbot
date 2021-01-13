@@ -19,15 +19,15 @@ def intro(update, context):
     I am a WIP bot. 
     So stay tuned for more features. 
     Send /help to know my features"""
-    #update.message.reply_text(intro)
-    update.send_message(chat_id=update.message.chat_id, 
+    update.message.reply_text(intro)
+    """update.send_message(chat_id=update.message.chat_id, 
     text="*bold* _italic_ `fixed width font` [link](http://google.com)\.", 
-    parse_mode=telegram.ParseMode.MARKDOWN_V2)
+    parse_mode=telegram.ParseMode.MARKDOWN_V2)"""
 
 def timetable(update, context):
     today = datetime.today().strftime("%A")
 
-    text = f"\033{today} ({date.today()})\n\n"
+    text = f"*bold*{today} ({date.today()})\n\n"
     for period in tt[today]:
         text += tt[today][period]
         text += "\n"
