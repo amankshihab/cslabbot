@@ -31,6 +31,11 @@ def timetable(update, context):
 
     update.message.reply_text(text)
 
+def syllabus(update, context):
+    url = "https://ktu.edu.in/data/COMPUTER%20SCIENCE%20AND%20ENGINEERING.pdf?=VDaCKgpZgjYqdJnW9kytNcr8GyJ0W8J3GpN22zV%2BXbRYw1JL4VK3h6CLTkOVonWAyZ0GdFnXL%2B6tbY7irHrwzA%3D%3D"
+    text = "Here you go, This is the syllabus"
+    update.message.reply_text(text + "\n" + url)
+
 def help(update , context):
     update.message.reply_text("""
     I am still under dev so I can only do the following features:
@@ -44,12 +49,13 @@ intro_handler = CommandHandler('who', intro)
 tt_handler = CommandHandler('tt', timetable)
 help_handler = CommandHandler('help',help)
 start_handler = CommandHandler('start', help)
+syllabus_handler = CommandHandler('syllabus', syllabus)
 
 dispatcher.add_handler(hello_handler)
 dispatcher.add_handler(intro_handler)
 dispatcher.add_handler(tt_handler)
 dispatcher.add_handler(help_handler)
 dispatcher.add_handler(start_handler)
-
+dispatcher.add_handler(syllabus_handler)
 
 updater.start_polling()
