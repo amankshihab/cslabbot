@@ -10,7 +10,7 @@ def hello(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text='Hello, World')
 
 def intro(update, context):
-	context.bot.send_message(chat_id=update.effective_chat.id, text='Hey there! I am the CSLAbot. I am WIP bot. So wait for further features')
+	context.bot.reply_text(chat_id=update.effective_chat.id, text='Hey there! I am the CSLAbot. I am WIP bot. So wait for further features')
 
 hello_handler = CommandHandler('hello', hello)
 intro_handler = CommandHandler('who', intro)
