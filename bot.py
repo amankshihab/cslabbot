@@ -27,7 +27,7 @@ def intro(update, context):
 def timetable(update, context):
     today = datetime.today().strftime("%A")
 
-    text = f"*{today} ({date.today()})*\n\n"
+    text = f"{today} ({date.today()})\n\n"
     for period in tt[today]:
         text += tt[today][period]
         text += "\n"
