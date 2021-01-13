@@ -32,7 +32,7 @@ def timetable(update, context):
         text += tt[today][period]
         text += "\n"
 
-    update.message.reply_text("**hello**")
+    update.message.reply_text(text)
 
 def syllabus(update, context):
     url = "https://ktu.edu.in/data/COMPUTER%20SCIENCE%20AND%20ENGINEERING.pdf?=VDaCKgpZgjYqdJnW9kytNcr8GyJ0W8J3GpN22zV%2BXbRYw1JL4VK3h6CLTkOVonWAyZ0GdFnXL%2B6tbY7irHrwzA%3D%3D"
