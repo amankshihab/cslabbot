@@ -32,9 +32,9 @@ def timetable(update, context):
 def help(update , context):
     update.message.reply_text("""
     I am still under dev so I can only do the following features:
-    1./tt-shows timetable
-    2./wh0
-    3./into
+    1."/tt" - shows timetable
+    2."/who" - shows info about me
+    3./hello - self explanatory
     """)
 
 hello_handler = CommandHandler('hello', hello)
