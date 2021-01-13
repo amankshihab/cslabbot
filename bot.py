@@ -1,7 +1,8 @@
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 from resources.secrets import TOKEN
 from resources.tt import tt
-from datetime import datetime
+from datetime import datetime, date
+import json
 
 #intro = 'Hey there! I am the CSLAbot. I am WIP bot. So wait for further features'
 
@@ -17,7 +18,14 @@ def intro(update, context):
     update.message.reply_text('Hey there! I am the CSLAbot. I am WIP bot. So wait for further features')
 
 def timetable(update, context):
-    update.message.reply_text(tt["Monday"])
+    today = datetime.today().strftime("%A")
+
+    text = f"{today}({date.today()})\n"
+    for period in tt[today]:
+        text += tt[today][period]
+        text += "\n"
+
+    update.message.reply_text(text)
 
 hello_handler = CommandHandler('hello', hello)
 intro_handler = CommandHandler('who', intro)

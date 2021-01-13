@@ -1,9 +1,8 @@
-tt = {
+{
     "Monday": {
         "1": "Java",
         "2": "Maths",
-        "3": "Sus. Engg.",
-        "4": "Lab"
+        "3": "Sus. Engg."
     },
     "Tuesday": {
         "1": "Java",
@@ -13,19 +12,16 @@ tt = {
     "Wednesday": {
         "1": "Maths",
         "2": "PE",
-        "3": "LSD",
-        "4": "Lab"
+        "3": "LSD"
     },
     "Thursday": {
         "1": "Java",
         "2": "DS",
-        "3": "Maths",
-        "4": "Minor"
+        "3": "Maths"
     },
     "Friday": {
         "1": "PE",
         "2": "DS",
-        "3": "LSD",
-        "4": "Minor"
+        "3": "LSD"
     }
 }
