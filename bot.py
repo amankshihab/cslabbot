@@ -4,8 +4,6 @@ from resources.tt import tt
 from datetime import datetime, date
 import json
 
-intro = """Hey there! I am the CSLAbot. \nI am a WIP bot. \nSo stay tuned for more features\n send /help to know my features"""
-
 updater = Updater(token=TOKEN, use_context=True) #Replace TOKEN with your token string
 dispatcher = updater.dispatcher
 
@@ -17,6 +15,10 @@ def hello(update, context):
 
 def intro(update, context):
 	#context.bot.reply_text(chat_id=update.effective_chat.id, text='Hey there! I am the CSLAbot. I am WIP bot. So wait for further features')
+    intro = """Hey there! I am the CSLAbot. 
+    I am a WIP bot. 
+    So stay tuned for more features. 
+    Send /help to know my features"""
     update.message.reply_text(intro)
 
 def timetable(update, context):
