@@ -27,13 +27,23 @@ def timetable(update, context):
 
     update.message.reply_text(text)
 
+def help(update , context):
+    update.message.reply_text("""
+    I am still under dev so I can only do the following features:
+    1./tt-shows timetable
+    2./wh0
+    3./into
+    """)
+
 hello_handler = CommandHandler('hello', hello)
 intro_handler = CommandHandler('who', intro)
 tt_handler = CommandHandler('tt', timetable)
+help_handler = CommandHandler('tt',help)
 
 dispatcher.add_handler(hello_handler)
 dispatcher.add_handler(intro_handler)
 dispatcher.add_handler(tt_handler)
+dis
 
 
 updater.start_polling()
