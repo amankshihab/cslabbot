@@ -20,9 +20,11 @@ def intro(update, context):
 def timetable(update, context):
     today = datetime.today().strftime("%A")
 
-    text = f"{today}({date.today()})\n"
+    text = f"**{today}({date.today()})\n\n**"
     for period in tt[today]:
+        text += "__"
         text += tt[today][period]
+        text += "__"
         text += "\n"
 
     update.message.reply_text(text)
