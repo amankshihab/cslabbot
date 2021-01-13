@@ -43,11 +43,13 @@ hello_handler = CommandHandler('hello', hello)
 intro_handler = CommandHandler('who', intro)
 tt_handler = CommandHandler('tt', timetable)
 help_handler = CommandHandler('help',help)
+start_handler = CommandHandler('start', help)
 
 dispatcher.add_handler(hello_handler)
 dispatcher.add_handler(intro_handler)
 dispatcher.add_handler(tt_handler)
 dispatcher.add_handler(help_handler)
+dispatcher.add_handler(start_handler)
 
 
 updater.start_polling()
