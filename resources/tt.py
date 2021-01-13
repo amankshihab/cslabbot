@@ -108,4 +108,3 @@ tt = {
 }  
 
 #today = datetime.today().strftime("%A")
-print(tt["Monday"])
