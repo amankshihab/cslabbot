@@ -50,7 +50,7 @@ def help(update , context):
 
 def web1(update , context):
     url = "https://fisat.webex.com/meet/csecr1"
-    text= "Link 1 for Webex class."
+    text= "Here is Link 1 for the Webex class. Don't be late!!"
     update.message.reply_text(text + "\n" + url)
 
 hello_handler = CommandHandler('hello', hello)
@@ -67,5 +67,6 @@ dispatcher.add_handler(tt_handler)
 dispatcher.add_handler(help_handler)
 dispatcher.add_handler(start_handler)
 dispatcher.add_handler(syllabus_handler)
+dispatcher.add_handler(web1_handler)
 
 updater.start_polling()
