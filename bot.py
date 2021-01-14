@@ -10,7 +10,7 @@ dispatcher = updater.dispatcher
 def hello(update, context):
     #context.bot.send_message(chat_id=update.effective_chat.id, text='Hello, World')
     user = update.message.from_user
-    hello = f"Hello {user['firstname']}!"
+    hello = f"Hello {user['first_name']}!"
     update.message.reply_text(hello)
 
 def intro(update, context):
