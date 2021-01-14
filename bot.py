@@ -56,7 +56,7 @@ def webex(update , context):
     update.message.reply_text(text + "\n" + "csecr1 - \n" + url1 + "\ncsecra2 - \n" + url2)
 
 def ktu_notif(update, context):
-    context.bot.reply_text(chat_id=update.effective_chat.id, text='Feature coming soon')
+    context.bot.send_message(chat_id=update.effective_chat.id, text='Feature coming soon')
 
 hello_handler = CommandHandler('hello', hello)
 intro_handler = CommandHandler('who', intro)
@@ -75,6 +75,5 @@ dispatcher.add_handler(start_handler)
 dispatcher.add_handler(syllabus_handler)
 dispatcher.add_handler(webex_handler)
 dispatcher.add_handler(ktu_handler)
-
 
 updater.start_polling()
