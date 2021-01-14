@@ -1,8 +1,12 @@
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+
 from resources.secrets import TOKEN
 from resources.tt import tt
+import resources.scraper as sc
+
 from datetime import datetime, date
 import json
+
 
 updater = Updater(token=TOKEN, use_context=True) #Replace TOKEN with your token string
 dispatcher = updater.dispatcher
@@ -55,8 +59,21 @@ def webex(update , context):
     text= "Here are the links for the Webex class. Don't be late!!"
     update.message.reply_text(text + "\n" + "csecr1 - \n" + url1 + "\ncsecra2 - \n" + url2)
 
+def scraped_info(update, context, job):
+    text, is_there = sc.get_info()
+    if(is_there == True):
+        context.bot.send_message(chat_id=job.context, text=text)    
+    else:
+        pass
+
+def scrape_timer(update, job_queue):
+    job_queue.run_repeating(scraped_info, 600, context = update.message.chat_id)
+
 def ktu_notif(update, context):
-    context.bot.send_message(chat_id=update.effective_chat.id, text='Feature coming soon')
+    text, is_there = sc.get_info()
+    if(is_there == True):
+        text = text.replace("**New Notification**", "**Latest Notification**")
+        update.message.reply_text(text)
 
 hello_handler = CommandHandler('hello', hello)
 intro_handler = CommandHandler('who', intro)
