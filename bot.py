@@ -48,12 +48,18 @@ def help(update , context):
     4." /syllabus " - get's the syllabus
     """)
 
+def web1(update , context):
+    url = "https://fisat.webex.com/meet/csecr1"
+    text= "Link 1 for Webex class."
+    update.message.reply_text(text + "\n" + url)
+
 hello_handler = CommandHandler('hello', hello)
 intro_handler = CommandHandler('who', intro)
 tt_handler = CommandHandler('tt', timetable)
 help_handler = CommandHandler('help',help)
 start_handler = CommandHandler('start', help)
 syllabus_handler = CommandHandler('syllabus', syllabus)
+web1_handler = CommandHandler('webex1', web1)
 
 dispatcher.add_handler(hello_handler)
 dispatcher.add_handler(intro_handler)
