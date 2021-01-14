@@ -48,10 +48,11 @@ def help(update , context):
     4." /syllabus " - get's the syllabus
     """)
 
-def web1(update , context):
-    url = "https://fisat.webex.com/meet/csecr1"
-    text= "Here is Link 1 for the Webex class. Don't be late!!"
-    update.message.reply_text(text + "\n" + url)
+def webex(update , context):
+    url1 = "https://fisat.webex.com/meet/csecr1"
+    url2 = "http://fisat.webex.com/meet/csecra2"
+    text= "Here are the links for the Webex class. Don't be late!!"
+    update.message.reply_text(text + "\n" + "csecr1 - \n" + url1 + "\ncsecra2 - \n" + url2)
 
 hello_handler = CommandHandler('hello', hello)
 intro_handler = CommandHandler('who', intro)
@@ -59,7 +60,7 @@ tt_handler = CommandHandler('tt', timetable)
 help_handler = CommandHandler('help',help)
 start_handler = CommandHandler('start', help)
 syllabus_handler = CommandHandler('syllabus', syllabus)
-web1_handler = CommandHandler('webex1', web1)
+webex_handler = CommandHandler('webex', webex)
 
 dispatcher.add_handler(hello_handler)
 dispatcher.add_handler(intro_handler)
@@ -67,6 +68,6 @@ dispatcher.add_handler(tt_handler)
 dispatcher.add_handler(help_handler)
 dispatcher.add_handler(start_handler)
 dispatcher.add_handler(syllabus_handler)
-dispatcher.add_handler(web1_handler)
+dispatcher.add_handler(webex_handler)
 
 updater.start_polling()
