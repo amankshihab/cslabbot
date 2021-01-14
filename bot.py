@@ -55,6 +55,9 @@ def webex(update , context):
     text= "Here are the links for the Webex class. Don't be late!!"
     update.message.reply_text(text + "\n" + "csecr1 - \n" + url1 + "\ncsecra2 - \n" + url2)
 
+def ktu_notif(update, context):
+    context.bot.reply_text(chat_id=update.effective_chat.id, text='Feature coming soon')
+
 hello_handler = CommandHandler('hello', hello)
 intro_handler = CommandHandler('who', intro)
 tt_handler = CommandHandler('tt', timetable)
@@ -62,6 +65,7 @@ help_handler = CommandHandler('help',help)
 start_handler = CommandHandler('start', help)
 syllabus_handler = CommandHandler('syllabus', syllabus)
 webex_handler = CommandHandler('webex', webex)
+ktu_handler = CommandHandler('ktu', ktu_notif)
 
 dispatcher.add_handler(hello_handler)
 dispatcher.add_handler(intro_handler)
@@ -70,5 +74,7 @@ dispatcher.add_handler(help_handler)
 dispatcher.add_handler(start_handler)
 dispatcher.add_handler(syllabus_handler)
 dispatcher.add_handler(webex_handler)
+dispatcher.add_handler(ktu_handler)
+
 
 updater.start_polling()
