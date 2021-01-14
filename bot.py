@@ -46,6 +46,7 @@ def help(update , context):
     2." /who " - shows info about me
     3." /hello " - self explanatory
     4." /syllabus " - get's the syllabus
+    5." /webex " - to get links for class
     """)
 
 def webex(update , context):
