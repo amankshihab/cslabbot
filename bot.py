@@ -73,7 +73,8 @@ def ktu_notif(update, context):
     text, is_there = sc.get_info()
     if(is_there == True):
         text = text.replace("**New Notification**", "**Latest Notification**")
-        update.message.reply_text(text)
+    
+    update.message.reply_text(text)
 
 hello_handler = CommandHandler('hello', hello)
 intro_handler = CommandHandler('who', intro)

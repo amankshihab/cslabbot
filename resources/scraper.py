@@ -7,6 +7,10 @@ def get_info():
     
     dct = {}
 
+    with open('t.json') as ltt:
+        dt = json.load(ltt)
+        ltt.close()
+
     headers = {
             "User-Agent": "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
         }
@@ -14,7 +18,7 @@ def get_info():
     try:
         notif_page = requests.get('https://ktu.edu.in/eu/core/announcements.htm', headers = headers)
     except:
-        return "none", False
+        return dt["latest"], False
 
     soup_notif_page = BeautifulSoup(notif_page.text, 'html.parser')
 
@@ -32,14 +36,12 @@ def get_info():
 
     dct["latest"] = final_text
 
-    with open('t.json') as ltt:
-        dt = json.load(ltt)
-
     if dt["latest"] != final_text:
         with open('t.json', 'w') as lt:
             json.dump(dct, lt, indent = 4)
+            lt.close()
 
         return final_text, True
 
     else:
-        return "none", False
+        return dt["latest"], False
