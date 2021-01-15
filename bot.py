@@ -71,7 +71,7 @@ def scrape_timer(update, job_queue):
 
 def ktu_notif(update, context):
     text, is_there = sc.get_info()
-    if(is_there == True):
+    if(is_there == False):
         text = text.replace("**New Notification**", "**Latest Notification**")
     
     update.message.reply_text(text)
