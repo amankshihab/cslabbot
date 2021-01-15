@@ -2,7 +2,7 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 from resources.secrets import TOKEN
 from resources.tt import tt
-import resources.scraper as sc
+import scraper as sc
 
 from datetime import datetime, date
 import json
