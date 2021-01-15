@@ -33,7 +33,7 @@ def intro(update, context):
 def timetable(update, context):
     today = datetime.today().strftime("%A")
 
-    if today != "Saturday" or today != "Sunday":
+    if today != 'Saturday' and today != 'Sunday':
         text = f"{today} ({date.today()})\n\n"
         for period in tt[today]:
             text += tt[today][period]
