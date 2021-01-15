@@ -31,12 +31,16 @@ def intro(update, context):
 def timetable(update, context):
     today = datetime.today().strftime("%A")
 
-    text = f"{today} ({date.today()})\n\n"
-    for period in tt[today]:
-        text += tt[today][period]
-        text += "\n"
+    if today != "Saturday" or today != "Sunday":
+        text = f"{today} ({date.today()})\n\n"
+        for period in tt[today]:
+            text += tt[today][period]
+            text += "\n"
 
-    update.message.reply_text(text)
+        update.message.reply_text(text)
+    else:
+        text = f"Seriously? You want class on a {today}, It's {date.today()} btw."
+        update.message.reply_text(text)
 
 def syllabus(update, context):
     url = "https://ktu.edu.in/data/COMPUTER%20SCIENCE%20AND%20ENGINEERING.pdf?=VDaCKgpZgjYqdJnW9kytNcr8GyJ0W8J3GpN22zV%2BXbRYw1JL4VK3h6CLTkOVonWAyZ0GdFnXL%2B6tbY7irHrwzA%3D%3D"
@@ -49,7 +53,7 @@ def help(update , context):
     1." /tt " - shows timetable
     2." /who " - shows info about me
     3." /hello " - self explanatory
-    4." /syllabus " - get's the syllabus
+    4." /syllabus " - gets the syllabus
     5." /webex " - to get links for class
     6." /ktu " - get latest notification from ktu, takes a while to get it
     """)
@@ -71,6 +75,9 @@ def scraped_info(update, context, job):
 def scrape_timer(update, job_queue):
     job_queue.run_repeating(scraped_info, 10, context = update.message.chat_id)
 
+def stops(update, job_queue):
+    job_queue.stop()
+
 def ktu_notif(update, context):
     text, is_there = sc.get_info()
     if(is_there == False):
@@ -86,6 +93,8 @@ start_handler = CommandHandler('start', help)
 syllabus_handler = CommandHandler('syllabus', syllabus)
 webex_handler = CommandHandler('webex', webex)
 ktu_handler = CommandHandler('ktu', ktu_notif)
+daily_handler = CommandHandler('daily', scrape_timer, pass_job_queue=True)
+stop_handler = CommandHandler('stop', stops, pass_job_queue=True)
 
 dispatcher.add_handler(hello_handler)
 dispatcher.add_handler(intro_handler)
@@ -95,5 +104,7 @@ dispatcher.add_handler(start_handler)
 dispatcher.add_handler(syllabus_handler)
 dispatcher.add_handler(webex_handler)
 dispatcher.add_handler(ktu_handler)
+dispatcher.add_handler(daily_handler)
+dispatcher.add_handler(stop_handler)
 
 updater.start_polling()
