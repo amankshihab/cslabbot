@@ -2,8 +2,9 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 from resources.secrets import TOKEN
 from resources.tt import tt
-from resources.joke import joke
+import joke as jokes
 import scraper as sc
+import quote as quotess
 
 from datetime import datetime, date
 import json
@@ -57,6 +58,8 @@ def help(update , context):
     4." /syllabus " - gets the syllabus
     5." /webex " - to get links for class
     6." /ktu " - get latest notification from ktu, takes a while to get it
+    7." /joke " - sends a random joke
+    8." /quote " - send a random quote
     """)
 
 def webex(update , context):
@@ -65,6 +68,7 @@ def webex(update , context):
     text= "Here are the links for the Webex class. Don't be late!!"
     update.message.reply_text(text + "\n" + "csecr1 - \n" + url1 + "\ncsecra2 - \n" + url2)
 
+#in the works begins
 def scraped_info(update, context, job):
     #text, is_there = sc.get_info()
     #if(is_there == True):
@@ -78,6 +82,7 @@ def scrape_timer(update, job_queue):
 
 def stops(update, job_queue):
     job_queue.stop()
+#in the works ends
 
 def ktu_notif(update, context):
     text, is_there = sc.get_info()
@@ -87,7 +92,20 @@ def ktu_notif(update, context):
     update.message.reply_text(text)
 
 def joke(update, context):
-    update.message.reply_text(joke)
+    success,joke = jokes.get_joke()
+
+    if success == True:
+        update.message.reply_text(joke)
+    else:
+        update.message.reply_text("Idk why, I'm not feeling funny at the moment.")
+
+def quotes(update, context):
+    success, quote_retreived = quotess.get_quotes()
+
+    if(success == True):
+        update.message.reply_text(quote_retreived)
+    else:
+        update.message.reply_text("Error 404 while loading inspiration. Try later.")
 
 hello_handler = CommandHandler('hello', hello)
 intro_handler = CommandHandler('who', intro)
@@ -100,6 +118,7 @@ ktu_handler = CommandHandler('ktu', ktu_notif)
 daily_handler = CommandHandler('daily', scrape_timer, pass_job_queue=True)
 stop_handler = CommandHandler('stop', stops, pass_job_queue=True)
 joke_handler = CommandHandler('joke', joke)
+quote_handler = CommandHandler('quote', quotes)
 
 dispatcher.add_handler(hello_handler)
 dispatcher.add_handler(intro_handler)
@@ -112,5 +131,6 @@ dispatcher.add_handler(ktu_handler)
 dispatcher.add_handler(daily_handler)
 dispatcher.add_handler(stop_handler)
 dispatcher.add_handler(joke_handler)
+dispatcher.add_handler(quote_handler)
 
 updater.start_polling()

@@ -24,8 +24,7 @@ def get_info():
 
     #got the heading text in text 
     text = li[0].find('b').get_text()
-    p = li[0].find('p').get_text()
-    next = li[0].get_text().replace(text, "").replace(p,"")
+    next = li[0].get_text().replace(text, "")
     final_text += text + '\n\n' + next
     final_text += "\nFor more info : https://ktu.edu.in/eu/core/announcements.htm"
 
