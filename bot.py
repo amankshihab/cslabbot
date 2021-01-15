@@ -51,6 +51,7 @@ def help(update , context):
     3." /hello " - self explanatory
     4." /syllabus " - get's the syllabus
     5." /webex " - to get links for class
+    6." /ktu " - get latest notification from ktu, takes a while to get it
     """)
 
 def webex(update , context):
@@ -60,14 +61,15 @@ def webex(update , context):
     update.message.reply_text(text + "\n" + "csecr1 - \n" + url1 + "\ncsecra2 - \n" + url2)
 
 def scraped_info(update, context, job):
-    text, is_there = sc.get_info()
-    if(is_there == True):
-        context.bot.send_message(chat_id=job.context, text=text)    
-    else:
-        pass
+    #text, is_there = sc.get_info()
+    #if(is_there == True):
+     #   context.bot.send_message(chat_id=job.context, text=text)    
+    #else:
+     #   pass
+    context.bot.send_message(chat_id=job.context, text="Hello") 
 
 def scrape_timer(update, job_queue):
-    job_queue.run_repeating(scraped_info, 600, context = update.message.chat_id)
+    job_queue.run_repeating(scraped_info, 10, context = update.message.chat_id)
 
 def ktu_notif(update, context):
     text, is_there = sc.get_info()
