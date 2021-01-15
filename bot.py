@@ -14,15 +14,15 @@ dispatcher = updater.dispatcher
 def hello(update, context):
     #context.bot.send_message(chat_id=update.effective_chat.id, text='Hello, World')
     user = update.message.from_user
-    hello = f"Hello {user['first_name']}!"
+    hello = f"Hello {user['first_name']}!, ssup?"
     update.message.reply_text(hello)
 
 def intro(update, context):
 	#context.bot.reply_text(chat_id=update.effective_chat.id, text='Hey there! I am the CSLAbot. I am WIP bot. So wait for further features')
     intro = """Hey there! I am the CSLAbot. 
-    I am a WIP bot. 
-    So stay tuned for more features. 
-    Send /help to know my features"""
+    Developed by the great minds in CSA(19-23)
+    To get a list of my commands type in "/help"
+    """
     update.message.reply_text(intro)
     """update.send_message(chat_id=update.message.chat_id, 
     text="*bold* _italic_ `fixed width font` [link](http://google.com)\.", 
@@ -49,7 +49,7 @@ def syllabus(update, context):
 
 def help(update , context):
     update.message.reply_text("""
-    I am still under dev so I can only do the following features:
+    I am a constantly evolving bot, I get better with every features added by the great minds of CSA ;):
     1." /tt " - shows timetable
     2." /who " - shows info about me
     3." /hello " - self explanatory
