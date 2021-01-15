@@ -2,6 +2,7 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 from resources.secrets import TOKEN
 from resources.tt import tt
+from resources.joke import joke
 import scraper as sc
 
 from datetime import datetime, date
@@ -85,6 +86,9 @@ def ktu_notif(update, context):
     
     update.message.reply_text(text)
 
+def joke(update, context):
+    update.message.reply_text(joke)
+
 hello_handler = CommandHandler('hello', hello)
 intro_handler = CommandHandler('who', intro)
 tt_handler = CommandHandler('tt', timetable)
@@ -95,6 +99,7 @@ webex_handler = CommandHandler('webex', webex)
 ktu_handler = CommandHandler('ktu', ktu_notif)
 daily_handler = CommandHandler('daily', scrape_timer, pass_job_queue=True)
 stop_handler = CommandHandler('stop', stops, pass_job_queue=True)
+joke_handler = CommandHandler('joke', joke)
 
 dispatcher.add_handler(hello_handler)
 dispatcher.add_handler(intro_handler)
@@ -106,5 +111,6 @@ dispatcher.add_handler(webex_handler)
 dispatcher.add_handler(ktu_handler)
 dispatcher.add_handler(daily_handler)
 dispatcher.add_handler(stop_handler)
+dispatcher.add_handler(joke_handler)
 
 updater.start_polling()
