@@ -115,8 +115,6 @@ def scrape_timer(update: Update, context: CallbackContext) -> None:
     if job_removed:
         text += "\nOld job was removed"
     reply = update.message.reply_text(text)
-    update.message.delete()
-    reply.delete()
 
 def stops(update: Update, context: CallbackContext) -> None:
     chat_id = update.message.chat_id
