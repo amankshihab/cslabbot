@@ -7,7 +7,7 @@ Hey You!
 yes you...
 would u like to run me on your system😉...... here's how
 
-======================
+
 Run me on your system
 ======================
 Firstly you must have python3.7.9 installed on your system 
@@ -32,7 +32,7 @@ Sometimes the telegram module may not get installed then just try this (Windows)
 You can now compile it on your pc and commit it here
 
 
-================================
+
 Important Notice(For new users)
 ================================
 
