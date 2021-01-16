@@ -122,7 +122,7 @@ def stops(update: Update, context: CallbackContext) -> None:
 
 def ktu_notif(update: Update, context: CallbackContext) -> None:
     text, is_there = sc.get_info()
-    if(is_there == False):
+    if not is_there :
         text = text.replace("**New Notification**", "**Last Notification**")
     
     update.message.reply_text(text)
@@ -130,7 +130,7 @@ def ktu_notif(update: Update, context: CallbackContext) -> None:
 def joke(update: Update, context: CallbackContext) -> None:
     success,joke = jokes.get_joke()
 
-    if success == True:
+    if success :
         reply = update.message.reply_text(joke)
         sleep(4)
         reply.delete()
@@ -141,7 +141,7 @@ def joke(update: Update, context: CallbackContext) -> None:
 def quotes(update: Update, context: CallbackContext) -> None:
     success, quote_retreived = quotess.get_quotes()
 
-    if(success == True):
+    if success :
         reply = update.message.reply_text(quote_retreived)
         sleep(6)
         reply.delete()
