@@ -52,14 +52,13 @@ def timetable(update: Update, context: CallbackContext) -> None:
             text += "\nDon't worry, monday's will be banned when me and my other bot friends take over the world.🤖"
         elif today == 'Friday':
             text += "\nTGIF! 🥳"
-        
-        update.message.reply_text(text)
+	
     elif today == 'Saturday':
-        text = f"Seriously? You want class on a {today}, It's {date.today()} btw. 🙄"
-        update.message.reply_text(text)
+        text = f"Seriously? You want class on a {today}, It's {date.today()} btw. 🙄"	
     elif today == 'Sunday':
         text = """Sunday : \"Am I a joke to you? 🤨\""""
-        update.message.reply_text(text)
+	
+    update.message.reply_text(text)
 
 def syllabus(update: Update, context: CallbackContext) -> None:
     url = "https://ktu.edu.in/data/COMPUTER%20SCIENCE%20AND%20ENGINEERING.pdf?=VDaCKgpZgjYqdJnW9kytNcr8GyJ0W8J3GpN22zV%2BXbRYw1JL4VK3h6CLTkOVonWAyZ0GdFnXL%2B6tbY7irHrwzA%3D%3D"
