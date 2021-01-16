@@ -41,7 +41,7 @@ def intro(update: Update, context: CallbackContext) -> None:
 
 def timetable(update: Update, context: CallbackContext) -> None:
     today = datetime.today().strftime("%A")
-    
+    #today = 'Monday'
     if today != 'Saturday' and today != 'Sunday':
         text = f"{today} ({date.today()})\n\n"
         for period in tt[today]:
@@ -70,6 +70,7 @@ def syllabus(update: Update, context: CallbackContext) -> None:
 def help(update: Update , context: CallbackContext) -> None:
     update.message.reply_text("""
     I am a constantly evolving bot, I get better with every features added by the great minds of CSA ;):
+    As of now I can do the following:
     1." /tt " - shows timetable
     2." /who " - shows info about me
     3." /hello " - self explanatory
@@ -113,7 +114,9 @@ def scrape_timer(update: Update, context: CallbackContext) -> None:
     text = "New notifications from KTU will pop up automatically here as they come."
     if job_removed:
         text += "\nOld job was removed"
-    update.message.reply_text(text)
+    reply = update.message.reply_text(text)
+    update.message.delete()
+    reply.delete()
 
 def stops(update: Update, context: CallbackContext) -> None:
     chat_id = update.message.chat_id
@@ -149,13 +152,13 @@ def quotes(update: Update, context: CallbackContext) -> None:
         update.message.reply_text("Error 404 while loading inspiration. Try later.")
 
 def exam(update: Update, context: CallbackContext) -> None:
-    details = """
-15/03 - Maths
-17/03 - Data Structure
-19/03 - LSD
-22/03 - Java
-24/03 - Professional Ethics
-26/03 - Sustainable
+    details = """--Exam Schedule--
+    15/03 - Maths
+    17/03 - Data Structure
+    19/03 - LSD
+    22/03 - Java
+    24/03 - Professional Ethics
+    26/03 - Sustainable
     """
     update.message.reply_text(details)
 
