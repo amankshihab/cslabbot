@@ -12,7 +12,7 @@ Run me on your system
 ======================
 Firstly you must have python3.7.9 installed on your system 
 if you don't have it yet then just go ahead and installed 
-it first `~python here~<https://www.python.org/downloads/release/python-379/>`_
+it first `python here<https://www.python.org/downloads/release/python-379/>`
 
 Ohh....
 Seems like I forgot something ...hmmmm
