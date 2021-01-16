@@ -1,4 +1,4 @@
-# cslabbot - I was born on 15-01-2021
+# cslabbot - ~~I was~~ born on 15-01-2021
 
 This is a telegram bot created by the students of CSA FISAT for the students of CSA FISAT.
 
@@ -22,8 +22,9 @@ you do have to download this as a zip file and extract it or you could clone me 
 Now to make sure that you have all the packages installed use cmd and 
 navigate to the folder containing the this file and type :
 
+    ```python
     pip install requirements.txt
-    
+    ```
 Sometimes the telegram module may not get installed then just try this (Windows):
 
     python -m pip install python-telegram-bot
