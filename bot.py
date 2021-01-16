@@ -78,6 +78,7 @@ def help(update: Update , context: CallbackContext) -> None:
     6." /ktu " - get latest notification from ktu, takes a while to get it
     7." /joke " - sends a random joke
     8." /quote " - send a random quote
+    9." /exam " - shows the exam timetable
     """)
 
 def webex(update:Update , context: CallbackContext) -> None:
@@ -147,6 +148,17 @@ def quotes(update: Update, context: CallbackContext) -> None:
     else:
         update.message.reply_text("Error 404 while loading inspiration. Try later.")
 
+def exam(update: Update, context: CallbackContext) -> None:
+    details = """
+15/03 - Maths
+17/03 - Data Structure
+19/03 - LSD
+22/03 - Java
+24/03 - Professional Ethics
+26/03 - Sustainable
+    """
+    update.message.reply_text(details)
+
 hello_handler = CommandHandler('hello', hello)
 intro_handler = CommandHandler('who', intro)
 tt_handler = CommandHandler('tt', timetable)
@@ -159,6 +171,7 @@ joke_handler = CommandHandler('joke', joke)
 quote_handler = CommandHandler('quote', quotes)
 ktustart_handler = CommandHandler('ktustart', scrape_timer)
 ktustop_handler = CommandHandler('ktustop', stops)
+examschedule_handler = CommandHandler('exam', exam)
 
 dispatcher.add_handler(hello_handler)
 dispatcher.add_handler(intro_handler)
@@ -172,6 +185,7 @@ dispatcher.add_handler(joke_handler)
 dispatcher.add_handler(quote_handler)
 dispatcher.add_handler(ktustart_handler)
 dispatcher.add_handler(ktustop_handler)
+dispatcher.add_handler(examschedule_handler)
 
 updater.start_polling()
 
