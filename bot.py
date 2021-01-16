@@ -9,14 +9,14 @@ import quote as quotess
 
 from datetime import datetime, date
 import json
-#import logging
+import logging
 from time import sleep
 
-"""logging.basicConfig(
+logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO
 )
 
-logger = logging.getLogger(__name__)"""
+logger = logging.getLogger(__name__)
 
 
 updater = Updater(token=TOKEN, use_context=True) #Replace TOKEN with your token string
@@ -41,16 +41,24 @@ def intro(update: Update, context: CallbackContext) -> None:
 
 def timetable(update: Update, context: CallbackContext) -> None:
     today = datetime.today().strftime("%A")
-
+    
     if today != 'Saturday' and today != 'Sunday':
         text = f"{today} ({date.today()})\n\n"
         for period in tt[today]:
             text += tt[today][period]
             text += "\n"
 
+        if today == 'Monday':
+            text += "\nDon't worry, monday's will be banned when me and my other bot friends take over the world.🤖"
+        elif today == 'Friday':
+            text += "\nTGIF! 🥳"
+        
         update.message.reply_text(text)
-    else:
-        text = f"Seriously? You want class on a {today}, It's {date.today()} btw."
+    elif today == 'Saturday':
+        text = f"Seriously? You want class on a {today}, It's {date.today()} btw. 🙄"
+        update.message.reply_text(text)
+    elif today == 'Sunday':
+        text = """Sunday : \"Am I a joke to you? 🤨\""""
         update.message.reply_text(text)
 
 def syllabus(update: Update, context: CallbackContext) -> None:
