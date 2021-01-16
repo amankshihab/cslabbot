@@ -39,4 +39,4 @@ Before you try and make a commit always make sure that it does'nt make conflict 
 
 Also try to make a pull request and commit it to a seperate branch if it has major developement on it.
 
-....thanks a lot on the contribution
+....thanks a lot for the contribution
