@@ -11,8 +11,8 @@ would u like to run me on your system😉...... here's how
 Run me on your system
 ======================
 Firstly you must have python3.7.9 installed on your system 
-if you don't have it yet then just go ahead and installed 
-it first `python here
+if you don't have it yet then just go ahead and install 
+it first `here
 <https://www.python.org/downloads/release/python-379/>`_
 
 Ohh....
