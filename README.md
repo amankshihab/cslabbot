@@ -1,29 +1,18 @@
-# cslabbot - I was born on 15-01-2021
-
-This is a telegram bot created by the students of CSA FISAT for the students of CSA FISAT.
+# cslabbot - ~~Me was~~ born on 15-01-2021
 
 
-Hey You!
-yes you...
-would u like to run me on your system😉...... here's how
+This is a telegram bot created by the students of CSA FISAT for the students of CSA FISAT.	This is a telegram bot created by the students of CSA FISAT for the students of CSA FISAT.
 
 
-Run me on your system
-======================
-Firstly you must have [python 3.7.9](https://www.python.org/downloads/release/python-379) installed on your system 
-if you don't have it yet then just go ahead and install 
-it first.
+@@ -22,8 +22,9 @@ you do have to download this as a zip file and extract it or you could clone me
+Now to make sure that you have all the packages installed use cmd and 	Now to make sure that you have all the packages installed use cmd and 
+navigate to the folder containing the this file and type :	navigate to the folder containing the this file and type :
 
-Ohh....
-Seems like I forgot something ...hmmmm
-Ohh yeah ..
-you do have to download this as a zip file and extract it or you could clone me into your pc.
 
-Now to make sure that you have all the packages installed use cmd and 
-navigate to the folder containing the this file and type :
-
+    ```python
     pip install requirements.txt
-    
+
+    ```    
 Sometimes the telegram module may not get installed then just try this (Windows):
 
     python -m pip install python-telegram-bot
