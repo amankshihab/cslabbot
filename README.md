@@ -1,4 +1,4 @@
-# cslabbot - born on 15-01-2021
+# cslabbot - I was born on 15-01-2021
 
 This is a telegram bot created by the students of CSA FISAT for the students of CSA FISAT.
 
