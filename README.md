@@ -13,7 +13,7 @@ Run me on your system
 Firstly you must have python3.7.9 installed on your system 
 if you don't have it yet then just go ahead and install 
 it first `python3.7.9
-<https://www.python.org/downloads/release/python-379>`_ .
+https://www.python.org/downloads/release/python-379`_ .
 
 Ohh....
 Seems like I forgot something ...hmmmm
@@ -21,12 +21,11 @@ Ohh yeah ..
 you do have to download this as a zip file and extract it or you could clone me into your pc.
 
 Now to make sure that you have all the packages installed use cmd and 
-navigate to the folder containing the this file and type
--cmd::
+navigate to the folder containing the this file and type :
 
     pip install requirements.txt
     
-Sometimes the telegram module may not get installed then just try this (Windows)::
+Sometimes the telegram module may not get installed then just try this (Windows):
 
     python -m pip install python-telegram-bot
     
