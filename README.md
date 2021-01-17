@@ -20,10 +20,10 @@ if you don't have it yet then just go ahead and install it first.
 Ohh....
 Seems like I forgot something ...hmmmm
 Ohh yeah ..
-you do have to download this as a zip file and extract it or you could clone me
+you do have to download this as a zip file and extract it or you could clone me to your pc.
 
 Now to make sure that you have all the packages installed use cmd and 	Now to make sure that you have all the packages installed use cmd and 
-navigate to the folder containing the this file and type :	navigate to the folder containing the this file and type :
+navigate to the folder containing the this file and type :	
 
 
     pip install -r requirements.txt
