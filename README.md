@@ -26,7 +26,7 @@ Now to make sure that you have all the packages installed use cmd and 	Now to ma
 navigate to the folder containing the this file and type :	navigate to the folder containing the this file and type :
 
 
-    pip install requirements.txt
+    pip install -r requirements.txt
     
 Sometimes the telegram module may not get installed then just try this (Windows):
 
