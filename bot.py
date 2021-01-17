@@ -7,7 +7,7 @@ import joke as jokes
 import scraper as sc
 import quote as quotess
 
-from datetime import datetime, date
+from datetime import datetime, date, time
 import json
 import logging
 from time import sleep
@@ -159,12 +159,43 @@ def exam(update: Update, context: CallbackContext) -> None:
     26/03 - Sustainable
     """
     update.message.reply_text(details)
+def festivals_and_birthdays(update: Update, context: CallbackContext) -> None:
+
+    job_removed = if_job_exists(str(update.message.chat_id), context)
+    text = "Happy Birthday "
+    
+    date = str(date.today())
+    date = date[5:10]
+
+    with open('festival.json', 'r') as festival:
+        festival_dict = json.load(festival)
+    
+        for dates in festival_dict:
+            if(date == dates):
+                text = festival_dict[date]
+        
+        festival.close()
+    context.bot.send_message(chat_id=job.context, text=text)
+
+    """"with open('birthdays.json', 'r') as birthdays:
+        birthday_dict = json.load(birthdays)
+        for dates in birthday_dict:
+            if(date == dates):
+                context.bot.send_message(chat_id = job.context, text = text + birthday_dict[date] + "!")
+
+        birthdays.close()"""
+#add daily_functions and ktu scraper to /start
+                
+
+def daily_functions(update: Update, context: CallbackContext) -> None:
+    job_removed = if_job_exists(str(update.message.chat_id), context)
+    context.job_queue.run_daily(festivals_and_birthdays, time(00,00,00), context = update.message.chat_id, name = str(update.message.chat_id))
 
 hello_handler = CommandHandler('hello', hello)
 intro_handler = CommandHandler('who', intro)
 tt_handler = CommandHandler('tt', timetable)
 help_handler = CommandHandler('help',help)
-start_handler = CommandHandler('start', help)
+start_handler = CommandHandler('start', daily_functions)
 syllabus_handler = CommandHandler('syllabus', syllabus)
 webex_handler = CommandHandler('webex', webex)
 ktu_handler = CommandHandler('ktu', ktu_notif)
