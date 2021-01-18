@@ -133,8 +133,8 @@ def joke(update: Update, context: CallbackContext) -> None:
 
     if success :
         reply = update.message.reply_text(joke)
-        sleep(4)
-        reply.delete()
+#         sleep(4)
+#         reply.delete()
 
     else:
         update.message.reply_text("Idk why, I'm not feeling funny at the moment.")
@@ -144,8 +144,8 @@ def quotes(update: Update, context: CallbackContext) -> None:
 
     if success :
         reply = update.message.reply_text(quote_retreived)
-        sleep(6)
-        reply.delete()
+#         sleep(6)
+#         reply.delete()
     else:
         update.message.reply_text("Error 404 while loading inspiration. Try later.")
 
