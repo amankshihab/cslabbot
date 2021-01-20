@@ -50,6 +50,23 @@ def timetable(update: Update, context: CallbackContext) -> None:
 
         if today == 'Monday':
             text += "\nDon't worry, monday's will be banned when me and my other bot friends take over the world.🤖"
+	elif today == 'Tuesday':
+		text+='\nOhh I was just wondering why you never called'
+	elif today == 'Wednesday':
+		text+='\nWhat! you have classes even today😅 \nHere\'s your time table for the day.🤭'
+# 		text+='\n'
+# 		text+='\n'
+	elif today == 'Thursday':
+		text+='\nIt’s Friday! Sorry… just practicing for tomorrow!'
+# 		text+='\nIt’s Thursday… or as I like to call it… “Day 4 of the hostage situation”'
+# 		text+='\nSome people call it Thursday, I like to call it Friday Eve'
+# 		text+='\nBetter days are just around the corner. They’re called Friday, Saturday and Sunday!'
+# 		text+='\nFriday just called! She’ll be here tomorrow!'
+# 		text+='\n'
+# 		text+='\n'
+# 		text+='\n'
+# 		text+='\nHappy Thursday! Sorry, but I’m saving my “Woo hoo!” for Friday.'
+# 		text+='\nIf TGIF is Thank God It’s Friday, then today must be SHIT – Sure Happy It’s Thursday.'
         elif today == 'Friday':
             text += "\nTGIF! 🥳"
         
