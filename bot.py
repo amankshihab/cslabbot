@@ -57,11 +57,11 @@ def timetable(update: Update, context: CallbackContext) -> None:
 # 		text+='\n'
 # 		text+='\n'
 	elif today == 'Thursday':
-		text+='\nIt’s Friday! Sorry… just practicing for tomorrow!'
+		text+='\nFriday just called! She’ll be here tomorrow!'
+# 		text+='\nIt’s Friday! Sorry… just practicing for tomorrow!'
 # 		text+='\nIt’s Thursday… or as I like to call it… “Day 4 of the hostage situation”'
 # 		text+='\nSome people call it Thursday, I like to call it Friday Eve'
 # 		text+='\nBetter days are just around the corner. They’re called Friday, Saturday and Sunday!'
-# 		text+='\nFriday just called! She’ll be here tomorrow!'
 # 		text+='\n'
 # 		text+='\n'
 # 		text+='\n'
