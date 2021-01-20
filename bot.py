@@ -31,13 +31,13 @@ def hello(update: Update, context: CallbackContext) -> None:
 
 def intro(update: Update, context: CallbackContext) -> None:
     # context.bot.reply_text(chat_id=update.effective_chat.id, text='Hey there! I am the CSLAbot. I am WIP bot. So wait for further features')
-    intro = """Hey there! I am the CSLAbot. 
+    intro = """Hey there! I am the CSLAbot.
     Developed by the great minds in CSA(19-23)
     To get a list of my commands type in "/help"
     """
     update.message.reply_text(intro)
-    """update.send_message(chat_id=update.message.chat_id, 
-    text="*bold* _italic_ `fixed width font` [link](http://google.com)\.", 
+    """update.send_message(chat_id=update.message.chat_id,
+    text="*bold* _italic_ `fixed width font` [link](http://google.com)\.",
     parse_mode=telegram.ParseMode.MARKDOWN_V2)"""
 
 
@@ -56,29 +56,29 @@ def timetable(update: Update, context: CallbackContext) -> None:
             text += '\nOhh I was just wondering why you never called'
         elif today == 'Wednesday':
             text += '\nWhat! you have classes even today😅 \nHere\'s your time table for the day.🤭'
-        # text+='\n'
-        # text+='\n'
+#            text+='\n'
+#            text+='\n'
         elif today == 'Thursday':
             text += '\nFriday just called! She’ll be here tomorrow!'
-        # text+='\nIt’s Friday! Sorry… just practicing for tomorrow!'
-        # text+='\nIt’s Thursday… or as I like to call it… “Day 4 of the hostage situation”'
-        # text+='\nSome people call it Thursday, I like to call it Friday Eve'
-        # text+='\nBetter days are just around the corner. They’re called Friday, Saturday and Sunday!'
-        # text+='\n'
-        # text+='\n'
-        # text+='\n'
-        # text+='\nHappy Thursday! Sorry, but I’m saving my “Woo hoo!” for Friday.'
-        # text+='\nIf TGIF is Thank God It’s Friday, then today must be SHIT – Sure Happy It’s Thursday.'
+#            text+='\nIt’s Friday! Sorry… just practicing for tomorrow!'
+#            text+='\nIt’s Thursday… or as I like to call it… “Day 4 of the hostage situation”'
+#            text+='\nSome people call it Thursday, I like to call it Friday Eve'
+#            text+='\nBetter days are just around the corner. They’re called Friday, Saturday and Sunday!'
+#            text+='\n'
+#            text+='\n'
+#            text+='\n'
+#            text+='\nHappy Thursday! Sorry, but I’m saving my “Woo hoo!” for Friday.'
+#            text+='\nIf TGIF is Thank God It’s Friday, then today must be SHIT – Sure Happy It’s Thursday.'
         elif today == 'Friday':
             text += "\nTGIF! 🥳"
 
 
     elif today == 'Saturday':
         text = "Ouch!\n I thought I convinced you the last time.\n\njust kidding....\n...have fun"
-        # text = f"Seriously? You want class on a {today}, It's {date.today()} btw. 🙄"
+#        text = f"Seriously? You want class on a {today}, It's {date.today()} btw. 🙄"
 
     elif today == 'Sunday':
-        # text = """Sunday : \"Am I a joke to you? 🤨\""""
+#        text = """Sunday : \"Am I a joke to you? 🤨\""""
         text = "Ohh ...don't worry.I will make sure that you get your classes tomorrow"
 
     update.message.reply_text(text)
