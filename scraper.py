@@ -18,7 +18,7 @@ def get_info():
     soup_notif_page = BeautifulSoup(notif_page.text, 'html.parser')
 
     tr = soup_notif_page.findAll('tr')
-    li = tr[1].findAll('li')
+    li = tr[0].findAll('li')
 
     final_text = "**New Notification**\n\n"
 
