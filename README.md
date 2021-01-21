@@ -22,15 +22,15 @@ Seems like I forgot something ...hmmmm
 Ohh yeah ..
 you do have to download this as a zip file and extract it or you could clone me to your pc.
 
-Now to make sure that you have all the packages installed use cmd and 	Now to make sure that you have all the packages installed use cmd and 
+Now to make sure that you have all the packages installed use cmd and
 navigate to the folder containing the this file and type :	
 
 
     pip install -r requirements.txt
     
-Sometimes the telegram module may not get installed then just try this (Windows):
+~Sometimes the telegram module may not get installed then just try this (Windows):~
 
-    python -m pip install python-telegram-bot
+    ~python -m pip install python-telegram-bot~
     
 You can now compile it on your pc and commit it here
 
