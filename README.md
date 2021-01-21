@@ -28,8 +28,8 @@ navigate to the folder containing the this file and type :
 
     pip install -r requirements.txt
     
-~Sometimes the telegram module may not get installed then just try this (Windows):~
-    ~python -m pip install python-telegram-bot~
+~Sometimes the telegram module may not get installed then just try this (Windows)~:
+~python -m pip install python-telegram-bot~
     
 You can now compile it on your pc and commit it here
 
