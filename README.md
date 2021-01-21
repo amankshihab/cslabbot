@@ -30,7 +30,7 @@ navigate to the folder containing the this file and type :
     
 ~Sometimes the telegram module may not get installed then just try this (Windows):~
 
-~    python -m pip install python-telegram-bot~
+~python -m pip install python-telegram-bot~
     
 You can now compile it on your pc and commit it here
 
