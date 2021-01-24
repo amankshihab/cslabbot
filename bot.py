@@ -44,8 +44,9 @@ def intro(update: Update, context: CallbackContext) -> None:
 def timetable(update: Update, context: CallbackContext) -> None:
     today = datetime.today().strftime("%A")
     # today = 'Monday'
+    text = ''
     if today != 'Saturday' and today != 'Sunday':
-        text = f"{today} ({date.today()})\n\n"
+        text += f"{today} ({date.today()})\n\n"
         for period in tt[today]:
             text += tt[today][period]
             text += "\n"
@@ -56,30 +57,30 @@ def timetable(update: Update, context: CallbackContext) -> None:
             text += '\nOhh I was just wondering why you never called'
         elif today == 'Wednesday':
             text += '\nWhat! you have classes even today😅 \nHere\'s your time table for the day.🤭'
-#            text+='\n'
-#            text+='\n'
+        #            text+='\n'
+        #            text+='\n'
         elif today == 'Thursday':
             text += '\nFriday just called! She’ll be here tomorrow!'
-#            text+='\nIt’s Friday! Sorry… just practicing for tomorrow!'
-#            text+='\nIt’s Thursday… or as I like to call it… “Day 4 of the hostage situation”'
-#            text+='\nSome people call it Thursday, I like to call it Friday Eve'
-#            text+='\nBetter days are just around the corner. They’re called Friday, Saturday and Sunday!'
-#            text+='\n'
-#            text+='\n'
-#            text+='\n'
-#            text+='\nHappy Thursday! Sorry, but I’m saving my “Woo hoo!” for Friday.'
-#            text+='\nIf TGIF is Thank God It’s Friday, then today must be SHIT – Sure Happy It’s Thursday.'
+        #            text+='\nIt’s Friday! Sorry… just practicing for tomorrow!'
+        #            text+='\nIt’s Thursday… or as I like to call it… “Day 4 of the hostage situation”'
+        #            text+='\nSome people call it Thursday, I like to call it Friday Eve'
+        #            text+='\nBetter days are just around the corner. They’re called Friday, Saturday and Sunday!'
+        #            text+='\n'
+        #            text+='\n'
+        #            text+='\n'
+        #            text+='\nHappy Thursday! Sorry, but I’m saving my “Woo hoo!” for Friday.'
+        #            text+='\nIf TGIF is Thank God It’s Friday, then today must be SHIT – Sure Happy It’s Thursday.'
         elif today == 'Friday':
             text += "\nTGIF! 🥳"
 
 
     elif today == 'Saturday':
-        text = "Ouch!\n I thought I convinced you the last time.\n\njust kidding....\n...have fun"
-#        text = f"Seriously? You want class on a {today}, It's {date.today()} btw. 🙄"
+        text += "Ouch!\n I thought I convinced you the last time.\n\njust kidding....\n...have fun"
+    #        text += f"Seriously? You want class on a {today}, It's {date.today()} btw. 🙄"
 
     elif today == 'Sunday':
-#        text = """Sunday : \"Am I a joke to you? 🤨\""""
-        text = "Ohh ...don't worry.I will make sure that you get your classes tomorrow"
+        #        text += """Sunday : \"Am I a joke to you? 🤨\""""
+        text += "Ohh ...don't worry.I will make sure that you get your classes tomorrow"
 
     update.message.reply_text(text)
 
@@ -194,19 +195,19 @@ def exam(update: Update, context: CallbackContext) -> None:
     """
     update.message.reply_text(details)
 
+
 def festivals_and_birthdays(update: Update, context: CallbackContext) -> None:
     job_removed = if_job_exists(str(update.message.chat_id), context)
     text = "Happy Birthday "
 
     date1 = str(date.today())
-    date1= date1[5:10]
+    date1 = date1[5:10]
 
-    date_festival=festi.get(date1, False)
+    date_festival = festi.get(date1, False)
 
     if date_festival:
         text += date_festival
-        context.bot.send_message(chat_id=job.context, text=text)
-
+        context.bot.send_message(chat_id=update.message.chat_id, text=text)
 
     """"with open('birthdays.json', 'r') as birthdays:
         birthday_dict = json.load(birthdays)
@@ -215,13 +216,16 @@ def festivals_and_birthdays(update: Update, context: CallbackContext) -> None:
                 context.bot.send_message(chat_id = job.context, text = text + birthday_dict[date] + "!")
 
         birthdays.close()"""
-#add daily_functions and ktu scraper to /start
-                
+
+
+# add daily_functions and ktu scraper to /start
+
 
 def daily_functions(update: Update, context: CallbackContext) -> None:
     job_removed = if_job_exists(str(update.message.chat_id), context)
-    context.job_queue.run_daily(festivals_and_birthdays, time(00,00,00), context = update.message.chat_id, name = str(update.message.chat_id)
-                                
+    context.job_queue.run_daily(festivals_and_birthdays, time(00, 00, 00), context=update.message.chat_id, name=str(update.message.chat_id))
+
+
 def main():
     hello_handler = CommandHandler('hello', hello)
     intro_handler = CommandHandler('who', intro)
