@@ -1,6 +1,5 @@
 festi = {
     "01.01" : "Happy New Year!",
-    "01.25" : "Test Day: Hey guyz... \n do you remember when i said \' I am a constanly evolving bot \' well.... (⊙_⊙) ....\n don't worry😅 i'm still evolving...\nso if you have any ideas that you'd like to add into me.\ndo let me know😉 \n\t~ur own cslabbot",
     "01.26" : "Happy Republic day!",
     "03.11" : "Happy Maha Shivarathri!",
     "04.01" : "This is the day for all you fools.",
