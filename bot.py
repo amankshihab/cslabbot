@@ -8,7 +8,7 @@ import scraper as sc
 import quote as quotess
 
 from datetime import datetime, date, time
-import json
+from festival import festi
 import logging
 from time import sleep
 
@@ -159,23 +159,20 @@ def exam(update: Update, context: CallbackContext) -> None:
     26/03 - Sustainable
     """
     update.message.reply_text(details)
-def festivals_and_birthdays(update: Update, context: CallbackContext) -> None:
 
+def festivals_and_birthdays(update: Update, context: CallbackContext) -> None:
     job_removed = if_job_exists(str(update.message.chat_id), context)
     text = "Happy Birthday "
-    
-    date = str(date.today())
-    date = date[5:10]
 
-    with open('festival.json', 'r') as festival:
-        festival_dict = json.load(festival)
-    
-        for dates in festival_dict:
-            if(date == dates):
-                text = festival_dict[date]
-        
-        festival.close()
-    context.bot.send_message(chat_id=job.context, text=text)
+    date1 = str(date.today())
+    date1= date1[5:10]
+
+    date_festival=festi.get(date1, False)
+
+    if date_festival:
+        text += date_festival
+        context.bot.send_message(chat_id=job.context, text=text)
+
 
     """"with open('birthdays.json', 'r') as birthdays:
         birthday_dict = json.load(birthdays)
