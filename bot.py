@@ -118,7 +118,7 @@ def scraped_info(context):
     text, is_there = sc.get_info()
     job = context.job
     if is_there:
-        context.bot.send_message(chat_id=job.context, text=text)
+        context.bot.send_message(chat_id=job.context, text=text, , parse_mode='MarkdownV2')
     else:
         pass
 
