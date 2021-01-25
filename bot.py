@@ -1,5 +1,5 @@
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
-from telegram import Update
+from telegram import Update, ParseMode
 
 from resources.secrets import TOKEN
 from resources.tt import tt
@@ -118,9 +118,7 @@ def scraped_info(context):
     text, is_there = sc.get_info()
     job = context.job
     if is_there:
-        context.bot.send_message(chat_id=job.context, text=text, , parse_mode='MarkdownV2')
-    else:
-        pass
+        context.bot.send_message(chat_id=job.context, text=text, parse_mode=ParseMode.MARKDOWN_V2)
 
 
 def if_job_exists(name, context):
@@ -226,8 +224,10 @@ def festivals_and_birthdays(update: Update, context: CallbackContext) -> None:
 
 def daily_functions(update: Update, context: CallbackContext) -> None:
     job_removed = if_job_exists(str(update.message.chat_id), context)
-    # there seems to a problem with run_daily() {24hours=86400sec}
-    context.job_queue.run_repeating(scraped_info, 86400, context=update.message.chat_id, name=str(update.message.chat_id))
+    # there seems to a problem with run_daily() {6hours=21600sec}
+    hour = datetime.now().hour
+    if(hour>0 and hour <7):
+        context.job_queue.run_repeating(scraped_info, 21600, context=update.message.chat_id, name=str(update.message.chat_id))
 
 
 def main():
