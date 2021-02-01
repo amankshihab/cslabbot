@@ -11,6 +11,7 @@ from datetime import datetime, date, time
 from festival import festi
 import logging
 from time import sleep
+from random import randint as rd
 
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO
@@ -45,44 +46,63 @@ def timetable(update: Update, context: CallbackContext) -> None:
     today = datetime.today().strftime("%A")
     # today = 'Monday'
     text = ''
+    t=[]
+    
     if today != 'Saturday' and today != 'Sunday':
         text += f"{today} ({date.today()})\n\n"
         for period in tt[today]:
             text += tt[today][period]
             text += "\n"
+            t.append(text)
 
         if today == 'Monday':
-            text += "\nDon't worry, monday's will be banned when me and my other bot friends take over the world.🤖"
+            text = "\nDon't worry, monday's will be banned when me and my other bot friends take over the world.🤖"
+            t.append(text)
         elif today == 'Tuesday':
-            text += '\nOhh I was just wondering why you never called'
+            text = '\nOhh I was just wondering why you never called'
+            t.append(text)
         elif today == 'Wednesday':
-            text += '\nWhat! you have classes even today😅 \nHere\'s your time table for the day.🤭'
-        #            text+='\n'
-        #            text+='\n'
+            text = '\nWhat! you have classes even today😅 \nHere\'s your time table for the day.🤭'
+            t.append(text)
         elif today == 'Thursday':
-            text += '\nFriday just called! She’ll be here tomorrow!'
-        #            text+='\nIt’s Friday! Sorry… just practicing for tomorrow!'
-        #            text+='\nIt’s Thursday… or as I like to call it… “Day 4 of the hostage situation”'
-        #            text+='\nSome people call it Thursday, I like to call it Friday Eve'
-        #            text+='\nBetter days are just around the corner. They’re called Friday, Saturday and Sunday!'
-        #            text+='\n'
-        #            text+='\n'
-        #            text+='\n'
-        #            text+='\nHappy Thursday! Sorry, but I’m saving my “Woo hoo!” for Friday.'
-        #            text+='\nIf TGIF is Thank God It’s Friday, then today must be SHIT – Sure Happy It’s Thursday.'
+            text = '\nFriday just called! She’ll be here tomorrow!'
+            t.append(text)
+            text ='\nIt’s Friday! Sorry… just practicing for tomorrow!'
+            t.append(text)
+            text ='\nIt’s Thursday… or as I like to call it… “Day 4 of the hostage situation”'
+            t.append(text)
+            text ='\nSome people call it Thursday, I like to call it Friday Eve'
+            t.append(text)
+            text ='\nBetter days are just around the corner. They’re called Friday, Saturday and Sunday!'
+            t.append(text)
+#             text ='\n'
+#             text ='\n'
+#             text ='\n'
+            text ='\nHappy Thursday! Sorry, but I’m saving my “Woo hoo!” for Friday.'
+            t.append(text)
+            text ='\nIf TGIF is Thank God It’s Friday, then today must be SHIT – Sure Happy It’s Thursday.'
+            t.append(text)
         elif today == 'Friday':
-            text += "\nTGIF! 🥳"
+            text = "\nTGIF! 🥳"
+            t.append(text)
 
 
     elif today == 'Saturday':
-        text += "Ouch!\n I thought I convinced you the last time.\n\njust kidding....\n...have fun"
-    #        text += f"Seriously? You want class on a {today}, It's {date.today()} btw. 🙄"
+        text = "Ouch!\n I thought I convinced you the last time.\n\njust kidding....\n...have a nice day"
+        t.append(text)
+        text = f"Seriously? You want class on a {today}, It's {date.today()} btw. 🙄"
+        t.append(text)
 
     elif today == 'Sunday':
-        #        text += """Sunday : \"Am I a joke to you? 🤨\""""
-        text += "Ohh ...don't worry.I will make sure that you get your classes tomorrow"
+        text = "Ohh ...don't worry.I will make sure that you get your classes tomorrow"
+        t.append(text)
+        
+    text  = ''
+    last = 1
+    if(len(t)>1):
+        last = rd(1,len(t)-1)
 
-    update.message.reply_text(text)
+    update.message.reply_text(t[0]+t[last])
 
 
 def syllabus(update: Update, context: CallbackContext) -> None:
@@ -226,6 +246,7 @@ def daily_functions(update: Update, context: CallbackContext) -> None:
     job_removed = if_job_exists(str(update.message.chat_id), context)
     # there seems to a problem with run_daily() {6hours=21600sec}
     hour = datetime.now().hour
+    # TODO : change this to run daily as this does not seems to be working
     if(hour>0 and hour <7):
         context.job_queue.run_repeating(scraped_info, 21600, context=update.message.chat_id, name=str(update.message.chat_id))
 
