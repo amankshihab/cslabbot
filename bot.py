@@ -221,7 +221,7 @@ def festivals_and_birthdays(update: Update, context: CallbackContext) -> None:
     date1 = str(date.today())
     date1 = date1[5:10]
 
-    date_festival = festi.get(date1, False)
+    date_festival = festi.get(date1)
 
     job = context.job
     if date_festival:
