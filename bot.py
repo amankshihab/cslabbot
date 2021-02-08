@@ -244,11 +244,10 @@ def festivals_and_birthdays(update: Update, context: CallbackContext) -> None:
 
 def daily_functions(update: Update, context: CallbackContext) -> None:
     job_removed = if_job_exists(str(update.message.chat_id), context)
-    # there seems to a problem with run_daily() {6hours=21600sec}
-    hour = datetime.now().hour
+    # {6hours=21600sec}
+    # hour = datetime.now().hour
     # TODO : change this to run daily as this does not seems to be working
-    if(hour>0 and hour <7):
-        context.job_queue.run_repeating(scraped_info, 21600, context=update.message.chat_id, name=str(update.message.chat_id))
+    context.job_queue.run_repeating(scraped_info, 21600*4, context=update.message.chat_id, name=str(update.message.chat_id))
 
 
 def main():
