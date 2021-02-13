@@ -44,65 +44,75 @@ def intro(update: Update, context: CallbackContext) -> None:
 
 def timetable(update: Update, context: CallbackContext) -> None:
     today = datetime.today().strftime("%A")
-    # today = 'Monday'
+    # today = 'Saturday'
     text = ''
-    t=[]
+    # t=[]
     
     if today != 'Saturday' and today != 'Sunday':
         text += f"{today} ({date.today()})\n\n"
         for period in tt[today]:
             text += tt[today][period]
             text += "\n"
-            t.append(text)
+            # t.append(text)
 
         if today == 'Monday':
-            text = "\nDon't worry, monday's will be banned when me and my other bot friends take over the world.🤖"
-            t.append(text)
+            text += "\nDon't worry, monday's will be banned when me and my other bot friends take over the world.🤖"
+            # t.append(text)
         elif today == 'Tuesday':
-            text = '\nOhh I was just wondering why you never called'
-            t.append(text)
+            text += '\nOhh I was just wondering why you never called'
+            # t.append(text)
         elif today == 'Wednesday':
-            text = '\nWhat! you have classes even today😅 \nHere\'s your time table for the day.🤭'
-            t.append(text)
+            text += '\nWhat! you have classes even today😅 \nHere\'s your time table for the day.🤭'
+            # t.append(text)
         elif today == 'Thursday':
-            text = '\nFriday just called! She’ll be here tomorrow!'
-            t.append(text)
-            text ='\nIt’s Friday! Sorry… just practicing for tomorrow!'
-            t.append(text)
-            text ='\nIt’s Thursday… or as I like to call it… “Day 4 of the hostage situation”'
-            t.append(text)
-            text ='\nSome people call it Thursday, I like to call it Friday Eve'
-            t.append(text)
-            text ='\nBetter days are just around the corner. They’re called Friday, Saturday and Sunday!'
-            t.append(text)
-#             text ='\n'
-#             text ='\n'
-#             text ='\n'
-            text ='\nHappy Thursday! Sorry, but I’m saving my “Woo hoo!” for Friday.'
-            t.append(text)
-            text ='\nIf TGIF is Thank God It’s Friday, then today must be SHIT – Sure Happy It’s Thursday.'
-            t.append(text)
+
+            j = rd(0,6)
+            if j == 0:
+                text += '\nFriday just called! She’ll be here tomorrow!'
+                # t.append(text)
+            if j == 1:
+                text +='\nIt’s Friday! Sorry… just practicing for tomorrow!'
+                # t.append(text)
+            if j == 2:
+                text +='\nIt’s Thursday… or as I like to call it… “Day 4 of the hostage situation”'
+                # t.append(text)
+            if j == 3:
+                text +='\nSome people call it Thursday, I like to call it Friday Eve'
+                # t.append(text)
+            if j == 4:
+                text +='\nBetter days are just around the corner. They’re called Friday, Saturday and Sunday!'
+                # t.append(text)
+            if j == 5:
+                text +='\nHappy Thursday! Sorry, but I’m saving my “Woo hoo!” for Friday.'
+                # t.append(text)
+            if j == 6:
+                text +='\nIf TGIF is Thank God It’s Friday, then today must be SHIT – Sure Happy It’s Thursday.'
+                # t.append(text)
         elif today == 'Friday':
-            text = "\nTGIF! 🥳"
-            t.append(text)
+            text += "\nTGIF! 🥳"
+            # t.append(text)
 
 
     elif today == 'Saturday':
-        text = "Ouch!\n I thought I convinced you the last time.\n\njust kidding....\n...have a nice day"
-        t.append(text)
-        text = f"Seriously? You want class on a {today}, It's {date.today()} btw. 🙄"
-        t.append(text)
+        d = rd(0,1)
+        if d == 0:
+            text += "Ouch!\n I thought I convinced you the last time.\n\njust kidding....\n...have a nice day"
+            # t.append(text)
+        if d == 1:
+            text += f"Seriously? You want class on a {today}, It's {date.today()} btw. 🙄"
+            # t.append(text)
 
     elif today == 'Sunday':
-        text = "Ohh ...don't worry.I will make sure that you get your classes tomorrow"
-        t.append(text)
+        text += "Ohh ...don't worry.I will make sure that you get your classes tomorrow"
+        # t.append(text)
         
-    text  = ''
-    last = 1
-    if(len(t)>1):
-        last = rd(1,len(t)-1)
+    # text  = ''
+    # last = 1
+    # if(len(t)>1):
+    #     last = rd(1,len(t)-1)
 
-    update.message.reply_text(t[0]+t[last])
+    # update.message.reply_text(t[0]+t[last])
+    update.message.reply_text(text)
 
 
 def syllabus(update: Update, context: CallbackContext) -> None:
@@ -124,6 +134,7 @@ def help(update: Update, context: CallbackContext) -> None:
     7." /joke " - sends a random joke
     8." /quote " - send a random quote
     9." /exam " - shows the exam timetable
+    10." /notes " - shows the drive link to notes
     """)
 
 
@@ -201,15 +212,26 @@ def quotes(update: Update, context: CallbackContext) -> None:
     else:
         update.message.reply_text("Error 404 while loading inspiration. Try later.")
 
+def notes(update: Update, context: CallbackContext) -> None:
+
+    say = """You'll get all the notes at:
+
+    https://drive.google.com/drive/folders/11ocnmMPi_8GPOcCjau9gDmCBUgMjwi-K?usp=sharing
+    """
+    update.message.reply_text(say)
+
 
 def exam(update: Update, context: CallbackContext) -> None:
-    details = """--Exam Schedule--
+    details = """--Sem Exam Schedule--
+    
     15/03 - Maths
     17/03 - Data Structure
     19/03 - LSD
     22/03 - Java
     24/03 - Professional Ethics
     26/03 - Sustainable
+
+    To get notes type in /notes.
     """
     update.message.reply_text(details)
 
@@ -264,6 +286,7 @@ def main():
     ktustart_handler = CommandHandler('ktustart', scrape_timer)
     ktustop_handler = CommandHandler('ktustop', stops)
     examschedule_handler = CommandHandler('exam', exam)
+    notes_handler = CommandHandler('notes', notes)
 
     dispatcher.add_handler(hello_handler)
     dispatcher.add_handler(intro_handler)
@@ -278,6 +301,7 @@ def main():
     dispatcher.add_handler(ktustart_handler)
     dispatcher.add_handler(ktustop_handler)
     dispatcher.add_handler(examschedule_handler)
+    dispatcher.add_handler(notes_handler)
 
     updater.start_polling()
 
