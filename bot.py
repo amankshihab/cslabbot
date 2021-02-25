@@ -287,6 +287,7 @@ def main():
     ktustop_handler = CommandHandler('ktustop', stops)
     examschedule_handler = CommandHandler('exam', exam)
     notes_handler = CommandHandler('notes', notes)
+    
 
     dispatcher.add_handler(hello_handler)
     dispatcher.add_handler(intro_handler)
