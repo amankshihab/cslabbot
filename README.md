@@ -20,10 +20,10 @@ if you don't have it yet then just go ahead and install it first.
 Ohh....
 Seems like I forgot something ...hmmmm
 Ohh yeah ..
-you do have to download this as a zip file and extract it or you could clone me to your pc.
+you do have to download this repo as a zip file and extract it or you could clone me to your pc.
 
 Now to make sure that you have all the packages installed use cmd and
-navigate to the folder containing the this file and type :	
+navigate to the folder containing the folder containing this file and type :	
 
 
     pip install -r requirements.txt
@@ -32,7 +32,7 @@ navigate to the folder containing the this file and type :
 
 ~python -m pip install python-telegram-bot~
     
-You can now compile it on your pc and commit it here
+You can now compile the code on your pc and commit it here
 
 
 
