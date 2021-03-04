@@ -224,12 +224,12 @@ def notes(update: Update, context: CallbackContext) -> None:
 def exam(update: Update, context: CallbackContext) -> None:
     details = """--Sem Exam Schedule--
     
-    15/03 - Maths
-    17/03 - Data Structure
-    19/03 - LSD
-    22/03 - Java
-    24/03 - Professional Ethics
-    26/03 - Sustainable
+    24/03 - Maths
+    26/03 - Data Structure
+    30/03 - LSD
+    08/04 - Java
+    13/04 - Professional Ethics
+    15/04 - Sustainable
 
     To get notes type in /notes.
     """
