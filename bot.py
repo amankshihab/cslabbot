@@ -229,7 +229,9 @@ def notes(update: Update, context: CallbackContext) -> None:
 
 @run_async
 def exam(update: Update, context: CallbackContext) -> None:
-    details = """--Sem Exam Schedule--
+
+    update.message.reply_text("""
+        --Sem Exam Schedule--
     
     24/03 - Maths
     26/03 - Data Structure
@@ -239,8 +241,7 @@ def exam(update: Update, context: CallbackContext) -> None:
     15/04 - Sustainable
 
     To get notes type in /notes.
-    """
-    update.message.reply_text(details)
+    """)
 
 
 @run_async
@@ -280,6 +281,18 @@ def daily_functions(update: Update, context: CallbackContext) -> None:
     # TODO : change this to run daily as this does not seems to be working
     context.job_queue.run_repeating(scraped_info, 21600*4, context=update.message.chat_id, name=str(update.message.chat_id))
 
+def version(update: Update, context: CallbackContext) -> None:
+    update.message.reply_text("""
+        latest update :
+            -bot now has multi-threading enabled
+            -bot got a new dp image
+
+
+future plans :
+            -add pdf scanner to the bot 
+            -add task  {time : s4}
+    """)
+
 
 # @run_async
 def main():
@@ -307,6 +320,7 @@ def main():
     ktustop_handler = CommandHandler('ktustop', stops)
     examschedule_handler = CommandHandler('exam', exam)
     notes_handler = CommandHandler('notes', notes)
+    version_handler = CommandHandler('version', version)
     
 
     dispatcher.add_handler(hello_handler)
@@ -323,6 +337,7 @@ def main():
     dispatcher.add_handler(ktustop_handler)
     dispatcher.add_handler(examschedule_handler)
     dispatcher.add_handler(notes_handler)
+    dispatcher.add_handler(version_handler)
 
     updater.start_polling()
 
