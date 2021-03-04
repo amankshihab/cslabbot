@@ -13,15 +13,6 @@ import logging
 from time import sleep
 from random import randint as rd
 
-logging.basicConfig(
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO
-)
-
-logger = logging.getLogger(__name__)
-
-updater = Updater(token=TOKEN, use_context=True)  # Replace TOKEN with your token string
-dispatcher = updater.dispatcher
-
 
 def hello(update: Update, context: CallbackContext) -> None:
     # context.bot.send_message(chat_id=update.effective_chat.id, text='Hello, World')
@@ -273,6 +264,16 @@ def daily_functions(update: Update, context: CallbackContext) -> None:
 
 
 def main():
+
+    
+    logging.basicConfig( format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO )
+
+    logger = logging.getLogger(__name__)
+
+    updater = Updater(token=TOKEN, use_context=True)  # Replace TOKEN with your token string
+    dispatcher = updater.dispatcher
+
+
     hello_handler = CommandHandler('hello', hello)
     intro_handler = CommandHandler('who', intro)
     tt_handler = CommandHandler('tt', timetable)
