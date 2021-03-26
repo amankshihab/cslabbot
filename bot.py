@@ -288,6 +288,7 @@ def version(update: Update, context: CallbackContext) -> None:
         latest update :
             -bot now has multi-threading enabled
             -bot got a new dp image
+            -timetable updated
 
 
 future plans :
