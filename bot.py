@@ -215,8 +215,8 @@ def quotes(update: Update, context: CallbackContext) -> None:
     #         sleep(6)
     #         reply.delete()
     else:
-        u
-        pdate.message.reply_text("Error 404 while loading inspiration. Try later.")
+        update.message.reply_text("Error 404 while loading inspiration. Try later.")
+
 @run_async
 def notes(update: Update, context: CallbackContext) -> None:
 
@@ -233,12 +233,15 @@ def exam(update: Update, context: CallbackContext) -> None:
     update.message.reply_text("""
         --Sem Exam Schedule--
     
-    24/03 - Maths
-    26/03 - Data Structure
-    30/03 - LSD
-    08/04 - Java
-    13/04 - Professional Ethics
-    15/04 - Sustainable
+    15/04 (FN) - Maths
+    20/04 (AN) - Data Structure
+    22/04 (AN) - LSD
+    26/04 (AN) - Java
+    28/04 (FN) - Professional Ethics
+    TBD - Sustainable Engg.
+
+    FN - 9.30am to 12.30pm
+    AN - 1.30pm to 4.30pm
 
     To get notes type in /notes.
     """)
