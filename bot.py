@@ -1,6 +1,6 @@
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
-from telegram.ext.dispatcher import run_async
 from telegram import Update, ParseMode
+from telegram import Bot
 
 from resources.secrets import TOKEN
 from resources.tt import tt
@@ -13,9 +13,10 @@ from festival import festi
 import logging
 from time import sleep
 from random import randint as rd
+from queue import Empty, Queue
 
 
-@run_async
+
 def hello(update: Update, context: CallbackContext) -> None:
     # context.bot.send_message(chat_id=update.effective_chat.id, text='Hello, World')
     user = update.message.from_user
@@ -23,7 +24,7 @@ def hello(update: Update, context: CallbackContext) -> None:
     update.message.reply_text(hello)
 
 
-@run_async
+
 def intro(update: Update, context: CallbackContext) -> None:
     # context.bot.reply_text(chat_id=update.effective_chat.id, text='Hey there! I am the CSLAbot. I am WIP bot. So wait for further features')
     intro = """Hey there! I am the CSLAbot.
@@ -36,7 +37,7 @@ def intro(update: Update, context: CallbackContext) -> None:
     parse_mode=telegram.ParseMode.MARKDOWN_V2)"""
 
 
-@run_async
+
 def timetable(update: Update, context: CallbackContext) -> None:
     today = datetime.today().strftime("%A")
     # today = 'Saturday'
@@ -110,14 +111,14 @@ def timetable(update: Update, context: CallbackContext) -> None:
     update.message.reply_text(text)
 
 
-@run_async
+
 def syllabus(update: Update, context: CallbackContext) -> None:
     url = "https://ktu.edu.in/data/COMPUTER%20SCIENCE%20AND%20ENGINEERING.pdf?=VDaCKgpZgjYqdJnW9kytNcr8GyJ0W8J3GpN22zV%2BXbRYw1JL4VK3h6CLTkOVonWAyZ0GdFnXL%2B6tbY7irHrwzA%3D%3D"
     text = "Here you go, This is the syllabus"
     update.message.reply_text(text + "\n" + url)
 
 
-@run_async
+
 def help(update: Update, context: CallbackContext) -> None:
     update.message.reply_text("""
     I am a constantly evolving bot, I get better with every features added by the great minds of CSA ;):
@@ -135,7 +136,7 @@ def help(update: Update, context: CallbackContext) -> None:
     """)
 
 
-@run_async
+
 def webex(update: Update, context: CallbackContext) -> None:
     url1 = "https://fisat.webex.com/meet/csecr1"
     url2 = "http://fisat.webex.com/meet/csecra2"
@@ -143,7 +144,7 @@ def webex(update: Update, context: CallbackContext) -> None:
     update.message.reply_text(text + "\n" + "csecr1 - \n" + url1 + "\ncsecra2 - \n" + url2)
 
 
-@run_async
+
 def scraped_info(context):
     text, is_there = sc.get_info()
     job = context.job
@@ -151,7 +152,7 @@ def scraped_info(context):
         context.bot.send_message(chat_id=job.context, text=text, parse_mode=ParseMode.MARKDOWN_V2)
 
 
-@run_async
+
 def if_job_exists(name, context):
     current_jobs = context.job_queue.get_jobs_by_name(name)
 
@@ -164,7 +165,7 @@ def if_job_exists(name, context):
     return True
 
 
-@run_async
+
 def scrape_timer(update: Update, context: CallbackContext) -> None:
     job_removed = if_job_exists(str(update.message.chat_id), context)
     context.job_queue.run_repeating(scraped_info, 300, context=update.message.chat_id, name=str(update.message.chat_id))
@@ -175,7 +176,7 @@ def scrape_timer(update: Update, context: CallbackContext) -> None:
     reply = update.message.reply_text(text)
 
 
-@run_async
+
 def stops(update: Update, context: CallbackContext) -> None:
     chat_id = update.message.chat_id
     job_removed = if_job_exists(str(chat_id), context)
@@ -183,7 +184,7 @@ def stops(update: Update, context: CallbackContext) -> None:
         "You wont receive automatic notifs from KTU anymore, /ktu can be used to get it manually.")
 
 
-@run_async
+
 def ktu_notif(update: Update, context: CallbackContext) -> None:
     text, is_there = sc.get_info()
     if not is_there:
@@ -192,7 +193,7 @@ def ktu_notif(update: Update, context: CallbackContext) -> None:
     update.message.reply_text(text)
 
 
-@run_async
+# @run_async
 def joke(update: Update, context: CallbackContext) -> None:
     success, joke = jokes.get_joke()
 
@@ -206,7 +207,7 @@ def joke(update: Update, context: CallbackContext) -> None:
         update.message.reply_text("Idk why, I'm not feeling funny at the moment.")
 
 
-@run_async
+
 def quotes(update: Update, context: CallbackContext) -> None:
     success, quote_retreived = quotess.get_quotes()
 
@@ -216,8 +217,6 @@ def quotes(update: Update, context: CallbackContext) -> None:
     #         reply.delete()
     else:
         update.message.reply_text("Error 404 while loading inspiration. Try later.")
-
-@run_async
 def notes(update: Update, context: CallbackContext) -> None:
 
     say = """You'll get all the notes at:
@@ -227,7 +226,7 @@ def notes(update: Update, context: CallbackContext) -> None:
     update.message.reply_text(say)
 
 
-@run_async
+
 def exam(update: Update, context: CallbackContext) -> None:
 
     update.message.reply_text("""
@@ -247,7 +246,7 @@ def exam(update: Update, context: CallbackContext) -> None:
     """)
 
 
-@run_async
+
 def festivals_and_birthdays(update: Update, context: CallbackContext) -> None:
     job_removed = if_job_exists(str(update.message.chat_id), context)
     text = "Happy Birthday "
@@ -276,7 +275,7 @@ def festivals_and_birthdays(update: Update, context: CallbackContext) -> None:
 # add daily_functions and ktu scraper to /start
 
 
-@run_async
+
 def daily_functions(update: Update, context: CallbackContext) -> None:
     job_removed = if_job_exists(str(update.message.chat_id), context)
     # {6hours=21600sec}
@@ -297,7 +296,7 @@ future plans :
     """)
 
 
-# @run_async
+# 
 def main():
 
     
@@ -308,16 +307,22 @@ def main():
     updater = Updater(token=TOKEN, use_context=True)  # Replace TOKEN with your token string
     dispatcher = updater.dispatcher
 
+    # dis = Dispatcher(
+    #     bot= Bot(token=TOKEN),
+    #     update_queue= Queue
+    #     )
 
-    hello_handler = CommandHandler('hello', hello)
+    print(Queue ,end=' \t')
+
+    hello_handler = CommandHandler('hello',hello,)
     intro_handler = CommandHandler('who', intro)
     tt_handler = CommandHandler('tt', timetable)
     help_handler = CommandHandler('help', help)
     start_handler = CommandHandler('start', daily_functions)
     syllabus_handler = CommandHandler('syllabus', syllabus)
     webex_handler = CommandHandler('webex', webex)
-    ktu_handler = CommandHandler('ktu', ktu_notif)
-    joke_handler = CommandHandler('joke', joke)
+    ktu_handler = CommandHandler('ktu', ktu_notif, run_async=True)
+    joke_handler = CommandHandler('joke', joke, run_async=True)
     quote_handler = CommandHandler('quote', quotes)
     ktustart_handler = CommandHandler('ktustart', scrape_timer)
     ktustop_handler = CommandHandler('ktustop', stops)
@@ -341,10 +346,16 @@ def main():
     dispatcher.add_handler(examschedule_handler)
     dispatcher.add_handler(notes_handler)
     dispatcher.add_handler(version_handler)
+    
+    print(Queue ,end=' \t')
 
     updater.start_polling()
 
+    
+    print(Queue ,end=' \t')
+
     updater.idle()
+    
 
 
 if __name__ == '__main__':
