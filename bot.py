@@ -239,8 +239,8 @@ def exam(update: Update, context: CallbackContext) -> None:
     28/04 (FN) - Professional Ethics
     TBD - Sustainable Engg.
 
-    FN - 9.30am to 12.30pm
-    AN - 1.30pm to 4.30pm
+    FN - 9.30am to 11.45pm
+    AN - 1.30pm to 3.45pm
 
     To get notes type in /notes.
     """)
