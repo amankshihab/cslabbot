@@ -236,7 +236,7 @@ def exam(update: Update, context: CallbackContext) -> None:
     20/04 (AN) - Data Structure
     22/04 (AN) - LSD
     26/04 (AN) - Java
-    28/04 (FN) - Professional Ethics
+    29/04 (FN) - Professional Ethics
     TBD - Sustainable Engg.
 
     FN - 9.30am to 11.45pm
