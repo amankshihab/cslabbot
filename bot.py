@@ -221,8 +221,9 @@ def notes(update: Update, context: CallbackContext) -> None:
 
     say = """You'll get all the notes at:
 
-    https://drive.google.com/drive/folders/11ocnmMPi_8GPOcCjau9gDmCBUgMjwi-K?usp=sharing
+    https://www.cslavia.us/
     """
+    #https://drive.google.com/drive/folders/11ocnmMPi_8GPOcCjau9gDmCBUgMjwi-K?usp=sharing
     update.message.reply_text(say)
 
 
