@@ -290,13 +290,17 @@ def version(update: Update, context: CallbackContext) -> None:
             -bot now has multi-threading enabled
             -bot got a new dp image
             -timetable updated
+            -changed the link in /notes
 
+We don't know what version it is right now lol
 
-future plans :
-            -add pdf scanner to the bot 
-            -add task  {time : s4}
+Maybe we'd call it version 2.0 for now
     """)
 
+
+# future plans :
+#             -add pdf scanner to the bot 
+#             -add task  {time : s4}
 
 # 
 def main():
