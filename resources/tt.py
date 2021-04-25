@@ -1,32 +1,40 @@
 tt = {
     "Monday": {
-        "1": "Java",
-        "2": "Maths",
-        "3": "Sus. Engg.",
-        "4": "Lab"
+        "1": "Operating Systems",
+        "2": "Graph Theory",
+        "3": "Computer Organization & Architecture",
+        "4": "DBMS"
+        "5": "Lab"
     },
     "Tuesday": {
-        "1": "Java",
-        "2": "DS",
-        "3": "LSD"
+        "1": "DBMS",
+        "2": "MCN 202",
+        "3": "Operating Systems",
+        "4": "DE",
+        "5": "Honours",
+        "6": "Minor"
     },
     "Wednesday": {
-        "1": "Maths",
-        "2": "PE",
-        "3": "LSD",
-        "4": "Lab"
+        "1": "DE",
+        "2": "Operating Systems",
+        "3": "Graph Theory",
+        "4": "Computer Organization & Architecture",
+        "5": "Minor",
+        "6": "Honours"
     },
     "Thursday": {
-        "1": "Java",
-        "2": "DS",
-        "3": "Maths",
-        "4": "Minor"
+        "1": "Computer Organization & Architecture",
+        "2": "DBMS",
+        "3": "Operating Systems",
+        "4": "Graph Theory",
+        "5": "Minor",
+        "6": "Honours"
     },
     "Friday": {
-        "1": "PE",
-        "2": "DS",
-        "3": "LSD",
-        "4": "Minor"
+        "1": "Graph Theory",
+        "2": "Computer Organization & Architecture",
+        "3": "MCN202",
+        "4": "DBMS"
     },
     
 }
