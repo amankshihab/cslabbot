@@ -8,14 +8,14 @@ tt = {
     },
     "Tuesday": {
         "1": "DBMS",
-        "2": "MCN 202",
+        "2": "Constitution Of India",
         "3": "Operating Systems",
-        "4": "DE",
+        "4": "Design and Engineering",
         "5": "Honours",
         "6": "Minor"
     },
     "Wednesday": {
-        "1": "DE",
+        "1": "Design and Engineering",
         "2": "Operating Systems",
         "3": "Graph Theory",
         "4": "Computer Organization & Architecture",
@@ -33,7 +33,7 @@ tt = {
     "Friday": {
         "1": "Graph Theory",
         "2": "Computer Organization & Architecture",
-        "3": "MCN202",
+        "3": "Constitution Of India",
         "4": "DBMS"
     },
     
