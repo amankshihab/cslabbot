@@ -3,7 +3,7 @@ tt = {
         "1": "Operating Systems",
         "2": "Graph Theory",
         "3": "Computer Organization & Architecture",
-        "4": "DBMS"
+        "4": "DBMS",
         "5": "Lab"
     },
     "Tuesday": {
