@@ -221,7 +221,9 @@ def notes(update: Update, context: CallbackContext) -> None:
 
     say = """You'll get all the notes at:
 
-    https://www.cslavia.us/
+    https://www.cslavia.us/  
+    or 
+    https://cs-web-delta.vercel.app/
     """
     #https://drive.google.com/drive/folders/11ocnmMPi_8GPOcCjau9gDmCBUgMjwi-K?usp=sharing
     update.message.reply_text(say)
