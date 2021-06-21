@@ -36,11 +36,13 @@ You can now compile the code on your pc and commit it here
 
 
 
-Important Notice(For new users)
+Resources
 ================================
+jokeapi -- https://official-joke-api.appspot.com/random_joke
 
-Before you try and make a commit always make sure that it does'nt make conflict with the main branch.
+quote ---- https://api.quotable.io/random
 
-Also try to make a pull request and commit it to a seperate branch if it has major developement on it.
+bot ------ https://python-telegram-bot.readthedocs.io/en/stable/
+
 
 ....thanks a lot for the contribution
