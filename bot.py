@@ -220,12 +220,12 @@ def quotes(update: Update, context: CallbackContext) -> None:
 def notes(update: Update, context: CallbackContext) -> None:
 
     say = """You'll get all the notes at:
-
-    https://www.cslavia.us/  
-    or 
-    https://cs-web-delta.vercel.app/
+    https://drive.google.com/drive/folders/11ocnmMPi_8GPOcCjau9gDmCBUgMjwi-K?usp=sharing
     """
-    #https://drive.google.com/drive/folders/11ocnmMPi_8GPOcCjau9gDmCBUgMjwi-K?usp=sharing
+    # https://www.cslavia.us/  
+    # or 
+    # https://cs-web-delta.vercel.app/
+    
     update.message.reply_text(say)
 
 
