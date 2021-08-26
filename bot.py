@@ -138,10 +138,10 @@ def help(update: Update, context: CallbackContext) -> None:
 
 
 def webex(update: Update, context: CallbackContext) -> None:
-    url1 = "https://fisat.webex.com/meet/csecr1"
-    url2 = "http://fisat.webex.com/meet/csecra2"
+    url2 = "https://fisat.webex.com/meet/csecra2"
+    url1 = "https://fisat.webex.com/join/csecr2"
     text = "Here are the links for the Webex class. Don't be late!!"
-    update.message.reply_text(text + "\n" + "csecr1 - \n" + url1 + "\ncsecra2 - \n" + url2)
+    update.message.reply_text(text + "\n" + "csecr2 - \n" + url1 + "\ncsecra2 - \n" + url2)
 
 
 
